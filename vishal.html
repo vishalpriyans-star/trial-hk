@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attractive CSS Marquee</title>
+    <style>
+        /* 1. Basic Setup & Fonts */
+        body {
+            background-color: #0d1117; /* Dark background for contrast */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 50px 0; /* Vertical padding */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* 2. The Main Marquee Container */
+        .marquee-container {
+            /* Full width of the viewport and hides the content that scrolls off */
+            width: 100%;
+            overflow: hidden; 
+            white-space: nowrap; /* Keeps all text on one line */
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); /* Glowing border effect */
+            background: #161b22; /* Slightly lighter dark background */
+            padding: 10px 0;
+            position: relative;
+        }
+        
+        /* 3. The Text Track - This holds the duplicated text */
+        .marquee-track {
+            display: inline-block;
+            /* Start the animation from here */
+            animation: scroll-left 25s linear infinite; 
+        }
+
+        /* Stop the scrolling when the mouse hovers over the container */
+        .marquee-container:hover .marquee-track {
+            animation-play-state: paused;
+        }
+
+        /* 4. Individual Text Items */
+        .marquee-item {
+            /* Attractive "Cyberpunk" look */
+            color: #00ffff; /* Bright cyan color */
+            font-size: 2.5em; /* Large, noticeable text */
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            padding: 0 40px; /* Spacing between the repeated text */
+            /* Add a glow to the text */
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.7), 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+
+        /* 5. The CSS Animation Keyframes */
+        /* This defines the actual movement */
+        @keyframes scroll-left {
+            /* Start position: 0% translation (normal position) */
+            0% {
+                transform: translateX(0%);
+            }
+            /* End position: move left by 50% of its width 
+               (The text is duplicated, so 50% moves the first copy off-screen 
+               and seamlessly replaces it with the second copy) */
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="marquee-container">
+        <div class="marquee-track">
+            <span class="marquee-item">NO BUGS FOUND ⚡ NO BUGS FOUND  ⚡ NO BUGS FOUND ⚡</span>
+            <span class="marquee-item" aria-hidden="true">NO BUGS FOUND ⚡ NO BUGS FOUND  ⚡ NO BUGS FOUND ⚡</span>
+    </div>
+
+</body>
+</html>
